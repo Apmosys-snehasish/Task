@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,6 +56,7 @@ public class Task2 {
                 }
             }
         }
+        System.out.println(lowestPriceName);
         }
         catch (IndexOutOfBoundsException e) {
             System.out.println("Mismatch in the number of iPhone names and prices.");
@@ -66,20 +68,26 @@ public class Task2 {
         
         
         driver.get("https://www.flipkart.com");
-        
+       // try {
 		
 		//driver.findElement(By.xpath("//*[@class='_2KpZ6l _2doB4z']")).click();
-		Thread.sleep(3000);
+        
+		/*
+		 Thread.sleep(3000);
+		 
 		driver.findElement(By.xpath("//*[@class='_2IX_2- VJZDxU']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@class='_2IX_2- VJZDxU']")).sendKeys("8327751730");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/div/form/div[3]/button")).click();
+		*/
 		//Thread.sleep(3000);
 		//driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/div/form/div[3]/button")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@class='_2KpZ6l _2doB4z']")).click();
-		
+        //}
+        //catch(NoSuchElementException exception)
+        //{
 
         
         WebElement flipkartSearchBox = driver.findElement(By.cssSelector("input[type='text']"));
@@ -109,8 +117,20 @@ public class Task2 {
        double pricedifference =Math.abs(lowestPrice-flipkartPrice);
        System.out.println("Price Difference : ₹" + pricedifference);
        
-        driver.close();
-        driver.quit();
+       driver.close();
+    driver.quit();
 	}
+//      finally
+//      {
+//    	  driver.close();
+//          driver.quit(); 
+//      }
+        
+	}
+//}
+//}
 
-}
+
+	
+
+
